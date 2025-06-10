@@ -1,12 +1,13 @@
 import { SquareX, Trash } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 
 const MAGNIFY_SIZE = 200
 const MAGNIFY_HALF = MAGNIFY_SIZE/2
 
 export default function ModalImg({imgs, setSelectImg, onTrashClick}){
-    
+    const { t } = useTranslation()
     const [magnify, setMagnify] = useState({'backgroundImage' : `url(${imgs.ImgUrl})`})
     function handleMouseMove(e){
         const {offsetX, offsetY, target} = e.nativeEvent
@@ -26,6 +27,7 @@ export default function ModalImg({imgs, setSelectImg, onTrashClick}){
     return (
         <>
             <div className="absolute top-1/2 left-1/2 -translate-1/2 bg-black/66 w-screen h-full backdrop-blur-xs z-1"></div>
+
             <div className="fixed top-1/2 left-1/2 -translate-1/2 flex flex-col justify-center items-center gap-5 z-2">
                 <button className="text-white hover:cursor-pointer" onClick={() => setSelectImg()}><SquareX/></button>
                 <figure className="aspect-auto relative w-5/6">
@@ -39,7 +41,7 @@ export default function ModalImg({imgs, setSelectImg, onTrashClick}){
                             onTrashClick(imgs.id)
                             setSelectImg()
                             }}><Trash/></button> 
-                        <p>{imgs.date}</p>
+                        <p>{new Date(imgs.date).toLocaleDateString(t('configs.dateConfig'))}</p>
                     </div>
                 </figure>
             </div>

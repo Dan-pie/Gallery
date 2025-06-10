@@ -1,9 +1,11 @@
 import { Asterisk } from "lucide-react"
 import ModalImg from "./Modals/ModalImg"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 export default function Gallery(props){
     const [selectImg, setSelectImg] = useState(null)
+    const { t } = useTranslation()
 
     function closeModal(){
         setSelectImg(null)
@@ -17,7 +19,7 @@ export default function Gallery(props){
                         <figure className="aspect-square overflow-hidden rounded-sm shadow-md">
                             <img src={imgs.ImgUrl} alt={imgs.title} className="size-full object-cover object-center "/>
                         </figure>
-                        <p className="text-sm">{imgs.date}</p>
+                        <p className="text-sm">{new Date(imgs.date).toLocaleDateString(t('configs.dateConfig'))}</p>
                         <h2 className="text-xl flex items-center">{imgs.favorite && <Asterisk/>}{imgs.title}</h2>
 
                     </article>

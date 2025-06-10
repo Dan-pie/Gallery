@@ -1,0 +1,26 @@
+{
+    "sidebar": {
+        "addImage" : "add Imagem",
+        "filter" : "filtro",
+        "favorite" : "favoritos",
+        "date" : "data",
+        "title" : "titulo",
+        "developed" : "desenvolvido <2/> por <3>dann</3>"
+    },
+    "header": {
+        "languages" : "Linguagens",
+        "theme" : "Tema",
+        "termsService" : "Termos & Serviço"
+    },
+    "modalImage": {
+        "image": "Imagem",
+        "titleInput" : "titulo",
+        "urlLinkInput" : "url link",
+        "favorite": "favorito",
+        "validating" : "validando...",
+        "error": "Url inválida"
+    },
+    "configs": {
+        "dateConfig" : "pt-br"
+    }
+}
